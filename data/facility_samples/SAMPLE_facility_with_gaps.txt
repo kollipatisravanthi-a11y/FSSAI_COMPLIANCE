@@ -1,0 +1,19 @@
+SAMPLE FACILITY SOP/MANUAL (FOR DEMO ONLY)
+
+Facility: Demo Snacks Unit
+Document: SOP Excerpts
+
+1. HYGIENE & CLEANING
+- Food-contact surfaces are cleaned WEEKLY as needed.
+- Staff decide cleaning frequency depending on workload.
+- Cleaning is performed using detergent and water.
+- Records may be maintained when required.
+
+2. STORAGE / TEMPERATURE CONTROL
+- Chiller temperature is monitored every shift.
+- Temperature log is maintained.
+- Chiller temperature should be kept safe.
+
+3. PERSONNEL HYGIENE
+- Staff wash hands sometimes.
+- Protective clothing is used when required.

@@ -1,0 +1,19 @@
+streamlit>=1.36
+pydantic>=2.7
+python-dotenv>=1.0
+fpdf2>=2.7
+python-docx>=1.1
+PyMuPDF>=1.24
+PyPDF2>=3.0
+langchain-text-splitters>=0.2
+chromadb>=0.5
+sentence-transformers>=3.0
+numpy>=1.26
+pandas>=2.2
+# Optional (OCR for scanned PDFs/images)
+# pytesseract
+# pdf2image
+# pillow
+
+# Optional (LLM-backed agents)
+openai>=1.30

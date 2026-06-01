@@ -1,0 +1,14 @@
+SAMPLE ONLY (NOT OFFICIAL LAW)
+
+This file exists purely to demonstrate retrieval + gap detection.
+Replace the contents of `data/regulations/` with official FSSAI / Schedule 4 / HACCP documents for real audits.
+
+HYGIENE
+- Food-contact surfaces must be cleaned and sanitized DAILY.
+- Cleaning records must be maintained and retained for audit.
+
+STORAGE / TEMPERATURE
+- Chilled storage should be monitored with defined temperature limits and logging frequency.
+
+PERSONNEL
+- Staff must follow documented handwashing and hygiene procedures.

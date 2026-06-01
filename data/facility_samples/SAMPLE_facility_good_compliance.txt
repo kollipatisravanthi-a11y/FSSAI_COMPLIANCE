@@ -1,0 +1,23 @@
+SAMPLE FACILITY SOP/MANUAL (FOR DEMO ONLY)
+
+Facility: Example Foods Pvt Ltd
+Document: Hygiene + Storage SOP (Extract)
+
+1. HYGIENE & CLEANING
+- Food-contact surfaces (tables, cutters, trays) are cleaned and sanitized DAILY at end of shift.
+- Sanitizer concentration is prepared per label instructions and verified using test strips.
+- Cleaning activities are recorded in the Cleaning Log after each task.
+- Cleaning records are retained for a minimum of 12 months and are available during audits.
+
+2. STORAGE / TEMPERATURE CONTROL
+- Chiller temperature limit: 0–5°C.
+- Freezer temperature limit: -18°C or colder.
+- Temperatures are recorded at least twice daily (opening and closing) in the Temperature Log.
+- Any out-of-limit reading triggers corrective action: isolate product, assess safety, and document the deviation.
+
+3. PERSONNEL HYGIENE
+- Staff follow documented handwashing procedure before entering the processing area and after any contamination risk.
+- Hairnets and clean uniforms are mandatory inside processing areas.
+
+4. DOCUMENTATION
+- Logs maintained: Cleaning Log, Temperature Log, Pest Control Service Record, Training Record.
