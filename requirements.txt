@@ -10,6 +10,7 @@ chromadb>=0.5
 sentence-transformers>=3.0
 numpy>=1.26
 pandas>=2.2
+matplotlib>=3.5
 # Optional (OCR for scanned PDFs/images)
 # pytesseract
 # pdf2image

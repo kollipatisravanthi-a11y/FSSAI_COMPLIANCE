@@ -1,0 +1,41 @@
+FSSAI Schedule 4 - Food Safety and Standards (Licensing and Registration of Food Businesses) Regulations
+
+4.1 General Hygiene Requirements
+All food premises must be maintained in a clean and sanitary condition at all times.
+Food preparation surfaces must be cleaned and sanitized daily using approved food-grade sanitizers.
+Floors, walls, and ceilings must be kept clean and in good repair.
+
+4.2 Personal Hygiene
+All food handlers must wash hands thoroughly with soap before handling food, after using the toilet, and after handling raw food.
+Food handlers must wear clean protective clothing including aprons, gloves, and head coverings.
+Personnel with communicable diseases must not handle food.
+
+4.3 Temperature Control
+Perishable food must be stored at or below 5 degrees Celsius.
+Hot food must be maintained at or above 60 degrees Celsius during service.
+Food must not be kept in the temperature danger zone (5-60 degrees Celsius) for more than 2 hours.
+
+4.4 Pest Control
+Food premises must be kept free from pests including rodents, insects, and birds.
+A documented pest control program must be maintained and records kept for inspection.
+Pest control treatments must be carried out by licensed operators.
+
+4.5 Waste Management
+Food waste must be removed from food preparation areas regularly and at least once daily.
+Waste bins must have tight-fitting lids and be cleaned regularly.
+Waste storage areas must be separate from food storage and preparation areas.
+
+4.6 Water Supply
+Only potable water from an approved source must be used in food preparation.
+Water storage tanks must be cleaned and disinfected at least once every six months.
+
+4.7 Equipment and Utensils
+All equipment and utensils in contact with food must be made of food-grade materials.
+Equipment must be cleaned and sanitized after each use.
+Cutting boards for raw meat and ready-to-eat food must be kept separate.
+
+HACCP Principles
+Hazard Analysis and Critical Control Points (HACCP) must be implemented in all food businesses.
+Critical control points must be identified, monitored, and documented.
+Corrective actions must be taken and recorded whenever a CCP is out of control.
+All HACCP records must be retained for a minimum of 2 years.

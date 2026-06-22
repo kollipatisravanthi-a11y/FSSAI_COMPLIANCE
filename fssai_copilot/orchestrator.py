@@ -5,8 +5,12 @@ import re
 import json
 from datetime import datetime
 
+from .database import AuditDatabase
 from .models import AuditReport, GapFinding, OperationalClaim, Scorecard
 from .vectorstore import query_clauses
+
+
+audit_db = AuditDatabase()
 
 
 def _has_openai() -> bool:
@@ -14,7 +18,10 @@ def _has_openai() -> bool:
 
 
 def _openai_client():
-    from openai import OpenAI
+    try:
+        from openai import OpenAI
+    except ImportError:
+        raise RuntimeError("OpenAI package is not installed. Install openai>=1.30 or run offline mode without OPENAI_API_KEY.")
 
     return OpenAI()
 
@@ -63,14 +70,17 @@ def auditor_agent_extract_claims(text: str) -> list[OperationalClaim]:
         )
 
         try:
-            resp = client.responses.create(
+            resp = client.chat.completions.create(
                 model=_openai_model(),
-                input=[
+                messages=[
                     {"role": "system", "content": sys},
                     {"role": "user", "content": user},
                 ],
+                temperature=0.0,
+                max_tokens=1200,
             )
-            data = _json_loads_maybe(resp.output_text)
+            output_text = resp.choices[0].message.get("content", "")
+            data = _json_loads_maybe(output_text)
             raw_claims = data.get("claims", []) if isinstance(data, dict) else []
             claims: list[OperationalClaim] = []
             for rc in raw_claims:
@@ -216,15 +226,18 @@ def analyst_agent_llm_batch(claims: list[OperationalClaim], retrieved: dict[int,
         f"RETRIEVED_CLAUSES_JSON:\n{json.dumps(retrieved, ensure_ascii=False)}"
     )
 
-    resp = client.responses.create(
+    resp = client.chat.completions.create(
         model=_openai_model(),
-        input=[
+        messages=[
             {"role": "system", "content": sys},
             {"role": "user", "content": user},
         ],
+        temperature=0.0,
+        max_tokens=1200,
     )
 
-    data = _json_loads_maybe(resp.output_text)
+    output_text = resp.choices[0].message.get("content", "")
+    data = _json_loads_maybe(output_text)
     raw_gaps = data.get("gaps", []) if isinstance(data, dict) else []
     gaps: list[GapFinding] = []
     for g in raw_gaps:
@@ -301,8 +314,7 @@ def run_audit(facility_filename: str, facility_text: str, top_k: int = 3) -> Aud
             pass
 
     scorecard = compute_scorecard(claims, gaps)
-
-    notes = []
+    notes: list[str] = []
     if not _has_openai():
         notes.append(
             "Running in offline demo mode (no `OPENAI_API_KEY`). Findings are heuristic and intended for scaffolding."
@@ -310,7 +322,7 @@ def run_audit(facility_filename: str, facility_text: str, top_k: int = 3) -> Aud
     else:
         notes.append("LLM mode enabled: outputs are constrained to retrieved clauses.")
 
-    return AuditReport(
+    report = AuditReport(
         facility_filename=facility_filename,
         created_at=datetime.utcnow(),
         claims=claims,
@@ -318,3 +330,10 @@ def run_audit(facility_filename: str, facility_text: str, top_k: int = 3) -> Aud
         scorecard=scorecard,
         notes=notes,
     )
+
+    try:
+        audit_db.save_report(report, top_k=top_k)
+    except Exception:
+        pass
+
+    return report
