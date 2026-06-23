@@ -5,16 +5,15 @@ fpdf2>=2.7
 python-docx>=1.1
 PyMuPDF>=1.24
 PyPDF2>=3.0
-langchain-text-splitters>=0.2
-chromadb>=0.5
+langchain-text-splitters>=1.1.2
+chromadb>=1.5
 sentence-transformers>=3.0
 numpy>=1.26
 pandas>=2.2
 matplotlib>=3.5
+openai>=1.30
+
 # Optional (OCR for scanned PDFs/images)
 # pytesseract
 # pdf2image
 # pillow
-
-# Optional (LLM-backed agents)
-openai>=1.30

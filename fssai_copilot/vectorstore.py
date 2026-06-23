@@ -26,6 +26,22 @@ class VectorStoreConfig:
     chunk_overlap: int = 100
 
 
+_MODEL_CACHE: dict[str, SentenceTransformer] = {}
+
+
+def get_embedding_model(model_name: str) -> SentenceTransformer:
+    """Load and cache the embedding model for the current process."""
+    if model_name not in _MODEL_CACHE:
+        try:
+            _MODEL_CACHE[model_name] = SentenceTransformer(model_name)
+        except Exception as exc:
+            raise RuntimeError(
+                f"Failed to load embedding model '{model_name}'. "
+                "Ensure the model is available locally or your network allows Hugging Face downloads."
+            ) from exc
+    return _MODEL_CACHE[model_name]
+
+
 def _stable_id(source: str, chunk_index: int, text: str) -> str:
     h = hashlib.sha256()
     h.update(source.encode("utf-8"))
@@ -49,7 +65,7 @@ def build_index_from_folder(folder: Path, config: VectorStoreConfig | None = Non
         separators=["\n\n", "\n", ". ", " ", ""],
     )
 
-    model = SentenceTransformer(config.embedding_model)
+    model = get_embedding_model(config.embedding_model)
 
     docs: list[str] = []
     metadatas: list[dict] = []
@@ -102,7 +118,7 @@ def query_clauses(query: str, top_k: int = 4, config: VectorStoreConfig | None =
     config = config or VectorStoreConfig()
     collection = load_collection(config)
 
-    model = SentenceTransformer(config.embedding_model)
+    model = get_embedding_model(config.embedding_model)
     q_emb = model.encode([query], normalize_embeddings=True)
 
     res = collection.query(
